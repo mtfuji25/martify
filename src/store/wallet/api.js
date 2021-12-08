@@ -28,6 +28,7 @@ import {
   setWalletLoading,
   setWalletData,
 } from "./walletActions";
+import { set_error } from "../error/errorActions";
 import {
   listAsset,
   updateListing,
@@ -79,6 +80,11 @@ export const connectWallet = (isSilent, callback) => async (dispatch) => {
     );
     dispatch(setWalletLoading(false));
     callback({ success: false, error });
+
+    dispatch(set_error({
+      message: "Here is my error",
+      detail: error,
+    }))
   }
 };
 
@@ -102,6 +108,11 @@ export const loadAssets = (wallet, callback) => async (dispatch) => {
     );
     dispatch(setWalletLoading(false));
     callback({ success: false, error });
+
+    dispatch(set_error({
+      message: "Here is my error",
+      detail: error,
+    }))
   }
 };
 
@@ -176,6 +187,11 @@ export const listToken =
       );
       dispatch(setWalletLoading(false));
       callback({ success: false });
+
+      dispatch(set_error({
+        message: "Here is my error",
+        detail: error,
+      }))
     }
   };
 
@@ -262,6 +278,11 @@ export const relistToken =
       );
       dispatch(setWalletLoading(false));
       callback({ success: false });
+
+      dispatch(set_error({
+        message: "Here is my error",
+        detail: error,
+      }))
     }
   };
 
@@ -334,6 +355,11 @@ export const delistToken = (wallet, asset, callback) => async (dispatch) => {
     );
     dispatch(setWalletLoading(false));
     callback({ success: false });
+
+    dispatch(set_error({
+      message: "Here is my error",
+      detail: error,
+    }))
   }
 };
 
@@ -424,5 +450,10 @@ export const purchaseToken = (wallet, asset, callback) => async (dispatch) => {
     );
     dispatch(setWalletLoading(false));
     callback({ success: false });
+
+    dispatch(set_error({
+      message: "Here is my error",
+      detail: error,
+    }))
   }
 };
